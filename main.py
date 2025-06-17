@@ -303,7 +303,7 @@ def get_temperature_for_style(prompt_style):
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about-us.html')
 
 @app.route('/privacy')
 def privacy():
