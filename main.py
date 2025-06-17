@@ -33,7 +33,7 @@ limiter = Limiter(
 limiter.init_app(app) 
 
 CORS(app, 
-     origins=['https://promptgenerator.ink'],  # Specific origins only
+     origins=['https://promptgenerator.ink','https://www.promptgenerator.ink'],  # Specific origins only
      methods=['GET', 'POST'],
      allow_headers=['Content-Type', 'Authorization'])
 
