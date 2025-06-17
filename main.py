@@ -6,7 +6,6 @@ from datetime import datetime
 from difflib import SequenceMatcher
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from flask_limiter.storage import RedisStorage
 # from .check import validate_input
 from flask_cors import CORS
 import re
@@ -27,7 +26,6 @@ client = replicate.Client(api_token=os.getenv('REPLICATE_API_TOKEN'))
 
 limiter = Limiter(
     key_func=get_remote_address,
-    storage=RedisStorage(os.getenv('REDIS_URL')),
     default_limits=["5 per minute"]
 )
 
