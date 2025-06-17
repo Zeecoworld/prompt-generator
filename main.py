@@ -26,7 +26,8 @@ client = replicate.Client(api_token=os.getenv('REPLICATE_API_TOKEN'))
 
 limiter = Limiter(
     key_func=get_remote_address,
-    default_limits=["5 per minute"]
+    default_limits=["5 per minute"],
+    storage_uri=os.getenv('REDIS_URL'),
 )
 
 limiter.init_app(app) 
