@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - PROMPT-GENERATOR - AI Prompt Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #212121;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1976d2;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #424242;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .nav-link.active {
+            background: #1976d2;
+            color: white;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #424242;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Terms Section */
+        .terms-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+
+        .last-updated {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .terms-content h2 {
+            color: #1976d2;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+
+        .terms-content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .terms-content h3 {
+            color: #424242;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 24px 0 12px 0;
+        }
+
+        .terms-content p {
+            color: #757575;
+            margin-bottom: 16px;
+        }
+
+        .terms-content ul {
+            color: #757575;
+            margin: 16px 0 16px 24px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+
+        .terms-content strong {
+            color: #424242;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            color: #856404;
+            margin-bottom: 0;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #1976d2;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #424242;
+            color: white;
+            padding: 32px 0 16px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .terms-section {
+                padding: 24px 20px;
+            }
+
+            .contact-cta {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PROMPT-GENERATOR</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                <li><a href="index.html#generator" class="nav-link">Generator</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+                <li><a href="{{ url_for('help_center') }}" class="nav-link">Help</a></li>
+                <li><a href="{{ url_for('term_of_service') }}" class="nav-link active">Terms</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Terms of Service</h1>
+            <p class="hero-subtitle">Please read these terms carefully before using PROMPT-GENERATOR</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Terms Section -->
+        <section class="terms-section">
+            <div class="last-updated">
+                <strong>Last Updated:</strong> January 15, 2025
+            </div>
+
+            <div class="terms-content">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using PROMPT-GENERATOR.ink ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+
+                <h2>2. Description of Service</h2>
+                <p>PROMPT-GENERATOR is an AI-powered platform that helps users create optimized prompts for various artificial intelligence models. Our service is provided free of charge and is designed to make AI more accessible to everyone.</p>
+
+                <h3>2.1 Service Features</h3>
+                <ul>
+                    <li>AI prompt generation for multiple platforms</li>
+                    <li>Support for ChatGPT, Claude, Gemini, and other AI models</li>
+                    <li>Unlimited prompt generation</li>
+                    <li>No registration required for basic features</li>
+                </ul>
+
+                <h2>3. User Responsibilities</h2>
+                <p>When using our service, you agree to:</p>
+                <ul>
+                    <li>Use the service for lawful purposes only</li>
+                    <li>Not attempt to harm, disable, or overburden our servers</li>
+                    <li>Not use the service to generate harmful, illegal, or inappropriate content</li>
+                    <li>Respect intellectual property rights of others</li>
+                    <li>Not attempt to reverse engineer our algorithms</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> You are responsible for the prompts you create and how you use them. Please ensure your generated prompts comply with the terms of service of the AI platforms you use them with.</p>
+                </div>
+
+                <h2>4. Intellectual Property</h2>
+                <p>The PROMPT-GENERATOR platform, including its design, code, algorithms, and content, is owned by us and protected by intellectual property laws. However, the prompts you generate using our service belong to you.</p>
+
+                <h3>4.1 Your Content</h3>
+                <p>You retain ownership of any content you input into our service and any prompts generated. We do not claim ownership of user-generated content.</p>
+
+                <h3>4.2 Our Content</h3>
+                <p>All other content, including but not limited to text, graphics, logos, and software, remains our property.</p>
+
+                <h2>5. Privacy and Data</h2>
+                <p>We are committed to protecting your privacy:</p>
+                <ul>
+                    <li>We do not store your prompts or personal input</li>
+                    <li>No registration or personal information is required</li>
+                    <li>We use minimal analytics to improve our service</li>
+                    <li>We do not sell or share user data with third parties</li>
+                </ul>
+
+                <h2>6. Service Availability</h2>
+                <p>While we strive to provide continuous service, we do not guarantee that PROMPT-GENERATOR will be available at all times. We may experience downtime for maintenance, updates, or technical issues.</p>
+
+                <h2>7. Limitation of Liability</h2>
+                <p>PROMPT-GENERATOR is provided "as is" without any warranties. We are not liable for any damages arising from the use of our service, including but not limited to:</p>
+                <ul>
+                    <li>Loss of data or prompts</li>
+                    <li>Service interruptions</li>
+                    <li>Results from using generated prompts</li>
+                    <li>Any indirect or consequential damages</li>
+                </ul>
+
+                <h2>8. Prohibited Uses</h2>
+                <p>You may not use PROMPT-GENERATOR to:</p>
+                <ul>
+                    <li>Generate content that promotes hatred, violence, or discrimination</li>
+                    <li>Create prompts for illegal activities</li>
+                    <li>Attempt to generate harmful or dangerous instructions</li>
+                    <li>Violate any applicable laws or regulations</li>
+                    <li>Infringe on the rights of others</li>
+                </ul>
+
+                <h2>9. Modifications to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on this page. Your continued use of the service after changes constitutes acceptance of the new terms.</p>
+
+                <h2>10. Termination</h2>
+                <p>We may terminate or suspend access to our service immediately, without prior notice, if you breach these terms. Upon termination, your right to use the service will cease immediately.</p>
+
+                <h2>11. Governing Law</h2>
+                <p>These terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these terms or your use of the service will be subject to the jurisdiction of appropriate courts.</p>
+
+                <h2>12. Contact Information</h2>
+                <p>If you have any questions about these Terms of Service, please contact us:</p>
+                <ul>
+                    <li>Email: legal@prompt-generator.ink</li>
+                    <li>Contact Form: Available on our Contact page</li>
+                    <li>Response Time: Within 48 hours for legal inquiries</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Questions?</strong> If you need clarification on any of these terms, please don't hesitate to reach out to our support team. We're here to help!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h3 class="cta-title">Questions about our Terms?</h3>
+            <p class="cta-subtitle">Our legal team is available to clarify any questions you may have about these terms.</p>
+            <a href="contact.html" class="cta-button">Contact Legal Team</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PROMPT-GENERATOR.ink - AI Prompt Generator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
