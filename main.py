@@ -25,10 +25,11 @@ redis_client = redis.Redis.from_url(os.getenv('REDIS_URL'))
 client = replicate.Client(api_token=os.getenv('REPLICATE_API_TOKEN'))
 
 limiter = Limiter(
-    app,
     key_func=get_remote_address,
-    default_limits=["5 per minute"]  # Use your Redis instance
+    default_limits=["5 per minute"]
 )
+
+limiter.init_app(app) 
 
 CORS(app, 
      origins=['https://promptgenerator.ink'],  # Specific origins only
