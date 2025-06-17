@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - PROMPT-GENERATOR - AI Prompt Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #212121;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1976d2;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #424242;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .nav-link.active {
+            background: #1976d2;
+            color: white;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #424242;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Privacy Section */
+        .privacy-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+
+        .last-updated {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .privacy-content h2 {
+            color: #1976d2;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+
+        .privacy-content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .privacy-content h3 {
+            color: #424242;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 24px 0 12px 0;
+        }
+
+        .privacy-content p {
+            color: #757575;
+            margin-bottom: 16px;
+        }
+
+        .privacy-content ul {
+            color: #757575;
+            margin: 16px 0 16px 24px;
+        }
+
+        .privacy-content li {
+            margin-bottom: 8px;
+        }
+
+        .privacy-content strong {
+            color: #424242;
+        }
+
+        .highlight-box {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            color: #2e7d32;
+            margin-bottom: 0;
+        }
+
+        .privacy-feature {
+            background: #f3e5f5;
+            border: 1px solid #9c27b0;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+
+        .privacy-feature p {
+            color: #6a1b9a;
+            margin-bottom: 0;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #1976d2;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #424242;
+            color: white;
+            padding: 32px 0 16px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .privacy-section {
+                padding: 24px 20px;
+            }
+
+            .contact-cta {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PROMPT-GENERATOR</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                <li><a href="index.html#generator" class="nav-link">Generator</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+                <li><a href="{{ url_for('help') }}" class="nav-link">Help</a></li>
+                <li><a href="{{ url_for('terms_of_service') }}" class="nav-link">Terms</a></li>
+                <li><a href="{{ url_for('privacy') }}" class="nav-link active">Privacy</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Privacy Policy</h1>
+            <p class="hero-subtitle">Your privacy is our priority. Learn how we protect your data.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Privacy Section -->
+        <section class="privacy-section">
+            <div class="last-updated">
+                <strong>Last Updated:</strong> January 15, 2025
+            </div>
+
+            <div class="privacy-content">
+                <div class="highlight-box">
+                    <p><strong>Privacy-First Approach:</strong> PROMPT-GENERATOR is designed with privacy at its core. We don't store your prompts, don't require registration, and collect minimal data to provide our service.</p>
+                </div>
+
+                <h2>1. Information We Collect</h2>
+                <p>We are committed to collecting only the minimum information necessary to provide and improve our service.</p>
+
+                <h3>1.1 Information You Don't Need to Provide</h3>
+                <ul>
+                    <li>No registration or account creation required</li>
+                    <li>No personal information collected</li>
+                    <li>No email addresses stored</li>
+                    <li>No payment information (service is free)</li>
+                </ul>
+
+                <h3>1.2 Information We Automatically Collect</h3>
+                <ul>
+                    <li><strong>Usage Analytics:</strong> Basic website usage statistics (page views, session duration)</li>
+                    <li><strong>Technical Data:</strong> Browser type, device type, IP address (for security purposes only)</li>
+                    <li><strong>Performance Data:</strong> Load times and error reports to improve service quality</li>
+                </ul>
+
+                <div class="privacy-feature">
+                    <p><strong>🔒 Zero Prompt Storage:</strong> We do not store, log, or retain any of the prompts you generate or the inputs you provide. Each session is completely independent.</p>
+                </div>
+
+                <h2>2. How We Use Your Information</h2>
+                <p>The limited information we collect is used solely to:</p>
+                <ul>
+                    <li>Provide and maintain our AI prompt generation service</li>
+                    <li>Analyze usage patterns to improve our algorithms</li>
+                    <li>Ensure website security and prevent abuse</li>
+                    <li>Monitor service performance and reliability</li>
+                    <li>Comply with legal obligations when required</li>
+                </ul>
+
+                <h2>3. Information We Don't Collect</h2>
+                <p>To protect your privacy, we explicitly do not collect:</p>
+                <ul>
+                    <li>Your prompt inputs or generated outputs</li>
+                    <li>Personal identification information</li>
+                    <li>Location data beyond country-level for analytics</li>
+                    <li>Browsing history on other websites</li>
+                    <li>Social media profiles or connections</li>
+                    <li>Sensitive personal data of any kind</li>
+                </ul>
+
+                <h2>4. Data Sharing and Third Parties</h2>
+                <p>We take data sharing seriously and follow strict principles:</p>
+
+                <h3>4.1 We Do Not Sell Your Data</h3>
+                <p>We never sell, rent, or trade any user data to third parties for marketing or commercial purposes.</p>
+
+                <h3>4.2 Limited Third-Party Services</h3>
+                <ul>
+                    <li><strong>Analytics:</strong> We use privacy-focused analytics that don't track individual users</li>
+                    <li><strong>CDN Services:</strong> For faster content delivery (no personal data shared)</li>
+                    <li><strong>Security Services:</strong> For DDoS protection and abuse prevention</li>
+                </ul>
+
+                <h3>4.3 Legal Requirements</h3>
+                <p>We may disclose information only when required by law, such as in response to valid legal requests from authorities.</p>
+
+                <h2>5. Data Security</h2>
+                <p>We implement industry-standard security measures to protect your information:</p>
+                <ul>
+                    <li><strong>Encryption:</strong> All data transmission is encrypted using HTTPS/TLS</li>
+                    <li><strong>Access Controls:</strong> Limited access to systems and data</li>
+                    <li><strong>Regular Updates:</strong> Security patches and system updates</li>
+                    <li><strong>Monitoring:</strong> Continuous security monitoring and threat detection</li>
+                </ul>
+
+                <div class="privacy-feature">
+                    <p><strong>🛡️ Session-Based Processing:</strong> All prompt generation happens in real-time without permanent storage. When you close your browser, no trace of your session remains on our servers.</p>
+                </div>
+
+                <h2>6. Your Privacy Rights</h2>
+                <p>Even though we collect minimal data, you have the following rights:</p>
+
+                <h3>6.1 Right to Information</h3>
+                <p>You can request information about what data we have collected (which is very limited).</p>
+
+                <h3>6.2 Right to Deletion</h3>
+                <p>You can request deletion of any analytical data associated with your sessions.</p>
+
+                <h3>6.3 Right to Opt-Out</h3>
+                <p>You can opt-out of analytics tracking using browser settings or privacy tools.</p>
+
+                <h2>7. Cookies and Tracking</h2>
+                <p>We use minimal cookies and tracking technologies:</p>
+
+                <h3>7.1 Essential Cookies</h3>
+                <ul>
+                    <li>Session management for the prompt generator</li>
+                    <li>Security and fraud prevention</li>
+                    <li>Basic functionality (no tracking)</li>
+                </ul>
+
+                <h3>7.2 Analytics Cookies</h3>
+                <ul>
+                    <li>Privacy-focused analytics (no individual tracking)</li>
+                    <li>Aggregated usage statistics only</li>
+                    <li>Can be disabled in browser settings</li>
+                </ul>
+
+                <h2>8. Data Retention</h2>
+                <p>Our data retention policy is designed to minimize data storage:</p>
+                <ul>
+                    <li><strong>Prompt Data:</strong> Not stored (processed and discarded immediately)</li>
+                    <li><strong>Analytics Data:</strong> Aggregated data retained for 12 months maximum</li>
+                    <li><strong>Security Logs:</strong> Retained for 30 days for security purposes</li>
+                    <li><strong>Error Logs:</strong> Retained for 7 days for debugging</li>
+                </ul>
+
+                <h2>9. International Data Transfers</h2>
+                <p>If you access our service from outside our primary jurisdiction:</p>
+                <ul>
+                    <li>We ensure appropriate safeguards for international data transfers</li>
+                    <li>We comply with applicable privacy laws in your jurisdiction</li>
+                    <li>Data processing occurs in secure, certified data centers</li>
+                </ul>
+
+                <h2>10. Children's Privacy</h2>
+                <p>We are committed to protecting children's privacy:</p>
+                <ul>
+                    <li>We do not knowingly collect information from children under 13</li>
+                    <li>Our service is designed to be safe for all ages</li>
+                    <li>Parents can contact us if they believe their child has used our service</li>
+                </ul>
+
+                <h2>11. Changes to Privacy Policy</h2>
+                <p>We may update this privacy policy to reflect changes in our practices or legal requirements:</p>
+                <ul>
+                    <li>Material changes will be prominently announced on our website</li>
+                    <li>The "Last Updated" date will be revised</li>
+                    <li>Continued use of the service constitutes acceptance of changes</li>
+                </ul>
+
+                <h2>12. Contact Information</h2>
+                <p>If you have questions about this privacy policy or your privacy rights:</p>
+                <ul>
+                    <li><strong>Email:</strong> privacy@prompt-generator.ink</li>
+                    <li><strong>Contact Form:</strong> Available on our Contact page</li>
+                    <li><strong>Response Time:</strong> Within 48 hours for privacy inquiries</li>
+                    <li><strong>Data Protection Officer:</strong> Available for GDPR-related questions</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Questions or Concerns?</strong> We're committed to transparency about our privacy practices. Don't hesitate to reach out if you need clarification on any aspect of how we handle your privacy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h3 class="cta-title">Questions about Privacy?</h3>
+            <p class="cta-subtitle">Our privacy team is here to address any concerns about your data protection.</p>
+            <a href="contact.html" class="cta-button">Contact Privacy Team</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PROMPT-GENERATOR.ink - AI Prompt Generator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
