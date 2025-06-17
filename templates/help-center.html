@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - PROMPT-GENERATOR - AI Prompt Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #212121;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1976d2;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #424242;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .nav-link.active {
+            background: #1976d2;
+            color: white;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #424242;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 32px;
+            text-align: center;
+            color: #212121;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 16px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 16px 0;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #212121;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        .faq-question:hover {
+            color: #1976d2;
+        }
+
+        .faq-icon {
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-answer {
+            padding: 0 0 16px 0;
+            color: #757575;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #1976d2;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        /* Search Results */
+        .search-results {
+            display: none;
+            margin-top: 16px;
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .results-count {
+            color: #757575;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .result-item:hover {
+            background: #e3f2fd;
+        }
+
+        .result-question {
+            font-weight: 500;
+            color: #1976d2;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 1px 2px;
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #424242;
+            color: white;
+            padding: 32px 0 16px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .faq-section {
+                padding: 20px;
+            }
+
+            .contact-cta {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PROMPT-GENERATOR</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                <li><a href="index.html#generator" class="nav-link">Generator</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+                <li><a href="{{ url_for('help-center') }}" class="nav-link active">Help</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Help Center</h1>
+            <p class="hero-subtitle">Find quick answers to common questions about PROMPT-GENERATOR</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for help...">
+            <div class="search-results" id="searchResults">
+                <div class="results-count" id="resultsCount"></div>
+                <div id="resultsContainer"></div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I create my first AI prompt?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Simply visit our homepage, describe what you want to achieve with AI, select your preferred AI model (ChatGPT, Claude, etc.), and click "Generate Prompt". Our AI will create an optimized prompt for your specific needs.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is PROMPT-GENERATOR free to use?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Yes! Our basic prompt generation service is completely free. You can generate unlimited prompts without any cost. We also offer premium features for advanced users who need more sophisticated optimization.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Which AI models do you support?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    We support all major AI models including ChatGPT (GPT-3.5, GPT-4), Claude, Google Gemini, Midjourney, DALL-E, Stable Diffusion, and many others. Our prompts are specifically optimized for each model's unique characteristics.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you store my prompts or personal data?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    No, we prioritize your privacy. We don't store your prompts, personal data, or any information you input into our generator. Everything is processed in real-time and discarded immediately after generation.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How can I get better results from my prompts?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Be specific about your goals, provide context, and mention your preferred output format. Our generator automatically applies best practices, but clearer input descriptions help create more targeted prompts. Also, choose the right AI model for your task type.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What if my generated prompt doesn't work well?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Try regenerating with more specific details about your desired outcome. You can also try a different AI model, as each has different strengths. If you continue having issues, contact our support team for personalized assistance.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I save or bookmark my favorite prompts?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Currently, you can copy and save prompts locally on your device. We're working on a user account system that will allow you to save, organize, and access your favorite prompts across devices. Stay tuned for updates!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I report a bug or suggest a feature?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Please use our contact form and select "Bug Report" or "Feature Request" as the subject. Include as much detail as possible. We review all feedback and many user suggestions have been implemented in our updates.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is there a limit to how many prompts I can generate?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    No limits on our free service! You can generate as many prompts as you need. We believe in making AI more accessible to everyone, so our core features remain free and unlimited.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How quickly will I get help if I contact support?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    We typically respond to all inquiries within 24 hours during business days (Monday-Friday, 9 AM - 6 PM EST). For urgent technical issues, we aim to respond within 4-6 hours.
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h3 class="cta-title">Still need help?</h3>
+            <p class="cta-subtitle">Can't find what you're looking for? Our support team is ready to assist you.</p>
+            <a href="contact.html" class="cta-button">Contact Support</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PROMPT-GENERATOR.ink - AI Prompt Generator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ data for search
+        const faqData = [
+            {
+                question: "How do I create my first AI prompt?",
+                answer: "Simply visit our homepage, describe what you want to achieve with AI, select your preferred AI model (ChatGPT, Claude, etc.), and click Generate Prompt. Our AI will create an optimized prompt for your specific needs."
+            },
+            {
+                question: "Is PROMPT-GENERATOR free to use?",
+                answer: "Yes! Our basic prompt generation service is completely free. You can generate unlimited prompts without any cost."
+            },
+            {
+                question: "Which AI models do you support?",
+                answer: "We support all major AI models including ChatGPT, Claude, Google Gemini, Midjourney, DALL-E, Stable Diffusion, and many others."
+            },
+            {
+                question: "Do you store my prompts or personal data?",
+                answer: "No, we prioritize your privacy. We don't store your prompts, personal data, or any information you input into our generator."
+            },
+            {
+                question: "How can I get better results from my prompts?",
+                answer: "Be specific about your goals, provide context, and mention your preferred output format. Choose the right AI model for your task type."
+            }
+        ];
+
+        // Navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const resultsCount = document.getElementById('resultsCount');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                searchResults.classList.remove('show');
+                return;
+            }
+
+            const results = faqData.filter(item => 
+                item.question.toLowerCase().includes(query) || 
+                item.answer.toLowerCase().includes(query)
+            );
+
+            displaySearchResults(results, query);
+        });
+
+        function displaySearchResults(results, query) {
+            if (results.length === 0) {
+                resultsCount.textContent = 'No results found';
+                resultsContainer.innerHTML = '<p style="color: #757575; padding: 12px;">Try different keywords or browse the FAQ below.</p>';
+            } else {
+                resultsCount.textContent = `${results.length} result${results.length !== 1 ? 's' : ''} found`;
+                resultsContainer.innerHTML = results.map(item => `
+                    <div class="result-item" onclick="scrollToFAQ('${item.question}')">
+                        <div class="result-question">${highlightText(item.question, query)}</div>
+                    </div>
+                `).join('');
+            }
+            
+            searchResults.classList.add('show');
+        }
+
+        function highlightText(text, query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function scrollToFAQ(question) {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(btn => {
+                if (btn.textContent.trim().includes(question)) {
+                    // Close search results
+                    searchResults.classList.remove('show');
+                    searchInput.value = '';
+                    
+                    // Open the FAQ item
+                    const faqItem = btn.parentElement;
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    faqItem.classList.add('active');
+                    
+                    // Scroll to it
+                    faqItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        }
+
+        // Hide search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchResults.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
