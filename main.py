@@ -27,8 +27,7 @@ client = replicate.Client(api_token=os.getenv('REPLICATE_API_TOKEN'))
 limiter = Limiter(
     app,
     key_func=get_remote_address,
-    default_limits=["20 per day", "50 per hour"],
-    storage_uri= os.getenv('REDIS_URL')  # Use your Redis instance
+    default_limits=["5 per minute"]  # Use your Redis instance
 )
 
 CORS(app, 
