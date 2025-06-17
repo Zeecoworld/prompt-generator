@@ -301,33 +301,33 @@ def get_temperature_for_style(prompt_style):
     return style_mapping.get(prompt_style, 0.7)
 
 
-@app.route('/')
+@app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/')
+@app.route('/privacy')
 def privacy():
     return render_template('privacy.html')
 
-@app.route('/')
+@app.route('/press')
 def press():
     return render_template('press.html')
 
-@app.route('/')
+@app.route('/security')
 def security():
     return render_template('security.html')
 
 
-@app.route('/')
+@app.route('/help-center')
 def help_center():
     return render_template('help-center.html')
 
-@app.route('/')
+@app.route('/contact')
 def contact():
     return render_template('contact.html')
 
 
-@app.route('/')
+@app.route('/term-of-service')
 def term_of_service():
     return render_template('term-of-service.html')
 
