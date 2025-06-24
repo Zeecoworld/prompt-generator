@@ -38,13 +38,22 @@ CORS(app,
      allow_headers=['Content-Type', 'Authorization'])
 
 
+
+
 @app.after_request
 def add_csp(response):
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' https://fpyf8.com https://pl27002338.profitableratecpm.com; "
+        "script-src 'self' 'unsafe-inline' "
+            "https://pagead2.googlesyndication.com "
+            "https://www.googletagservices.com "
+            "https://securepubads.g.doubleclick.net "
+            "https://fpyf8.com "
+            "https://pl27002338.profitableratecpm.com; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-        "font-src https://fonts.gstatic.com;"
+        "font-src https://fonts.gstatic.com; "
+        "img-src 'self' https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net; "
+        "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;"
     )
     return response
 
