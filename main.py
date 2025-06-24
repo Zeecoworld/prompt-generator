@@ -37,6 +37,18 @@ CORS(app,
      methods=['GET', 'POST'],
      allow_headers=['Content-Type', 'Authorization'])
 
+
+@app.after_request
+def add_csp(response):
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' https://fpyf8.com https://pl27002338.profitableratecpm.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src https://fonts.gstatic.com;"
+    )
+    return response
+
+
 def calculate_prompt_similarity(prompt1, prompt2):
     """Calculate similarity between two prompts"""
     if prompt1.strip().lower() == prompt2.strip().lower():
