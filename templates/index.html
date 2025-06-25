@@ -504,7 +504,76 @@
                 padding: 20px;
             }
         }
+
+        /* New styles for the prompt image generation */
+        .prompt-image-container {
+            display: none; /* Hidden by default */
+            position: absolute; /* Allows for precise positioning */
+            top: -9999px; /* Off-screen positioning */
+            left: -9999px; /* Off-screen positioning */
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); /* Purple gradient background */
+            padding: 60px; /* Increased padding */
+            font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 600px; /* Adjust as needed */
+            min-height: 400px; /* Adjust as needed */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+        }
+
+        .prompt-image-card {
+            background: #ffffff; /* White background */
+            border-radius: 20px; /* More rounded corners */
+            padding: 40px; /* Generous padding inside the card */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            text-align: left;
+            max-width: 500px; /* Constrain width */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between elements */
+        }
+
+        .prompt-image-header {
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Space between flame and text */
+            margin-bottom: 10px; /* Space below header */
+        }
+
+        .prompt-image-header .fire-emoji {
+            font-size: 3rem; /* Larger emoji */
+            line-height: 1; /* Align with text */
+        }
+
+        .prompt-image-header h3 {
+            font-size: 1.8rem; /* Larger prompt title */
+            font-weight: 700; /* Bolder */
+            color: #212121;
+        }
+
+        .prompt-image-text {
+            font-size: 1.3rem; /* Larger prompt text */
+            line-height: 1.6;
+            color: #424242;
+            font-weight: 500; /* Slightly bolder */
+        }
+
+        .prompt-image-footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #757575;
+            text-align: right; /* Align footer to the right */
+        }
+
+        .prompt-image-footer a {
+            color: #1976d2; /* Link color */
+            text-decoration: none;
+            font-weight: 600;
+        }
     </style>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -614,6 +683,7 @@
                     <div class="action-buttons">
                         <button class="secondary-button" onclick="copyPrompt()">Copy Prompt</button>
                         <button class="secondary-button" onclick="downloadPrompt()">Download</button>
+                        <button class="secondary-button" onclick="downloadPromptAsImage()">Download (PNG)</button>
                     </div>
                 </div>
             </div>
@@ -685,6 +755,20 @@
          <script async="async" data-cfasync="false" src="//pl27002338.profitableratecpm.com/c207330fdc13bdf088ea896716dc0d02/invoke.js"></script>
          <div id="container-c207330fdc13bdf088ea896716dc0d02"></div>
     </main>
+    
+    <div id="promptImageContainer" class="prompt-image-container">
+        <div class="prompt-image-card">
+            <div class="prompt-image-header">
+                <span class="fire-emoji">🔥</span>
+                <h3>Prompt of the Day</h3>
+            </div>
+            <div class="prompt-image-text" id="promptImageText">
+                </div>
+            <div class="prompt-image-footer">
+                Generate more via <a href="https://promptgenerator.ink" target="_blank">promptgenerator.ink</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -845,6 +929,41 @@
             a.click();
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
+        }
+
+        // New function to download prompt as PNG
+        function downloadPromptAsImage() {
+            const promptText = document.getElementById('generatedPrompt').textContent;
+            const promptImageContainer = document.getElementById('promptImageContainer');
+            const promptImageText = document.getElementById('promptImageText');
+
+            // Set the prompt text in the hidden div
+            promptImageText.textContent = promptText;
+
+            // Make the container visible briefly for html2canvas
+            promptImageContainer.style.display = 'flex'; // Use flex to center content
+
+            // Use html2canvas to capture the hidden div
+            html2canvas(promptImageContainer, {
+                useCORS: true, // If you have external images/fonts, enable this
+                backgroundColor: null, // Transparent background if the outer container has one
+                scale: 2 // Increase scale for better quality
+            }).then(function(canvas) {
+                // Hide the container again
+                promptImageContainer.style.display = 'none';
+
+                // Create an image from the canvas and trigger download
+                const link = document.createElement('a');
+                link.download = 'prompt-of-the-day.png';
+                link.href = canvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }).catch(error => {
+                console.error('Error generating image:', error);
+                alert('Failed to generate image. Please try again.');
+                promptImageContainer.style.display = 'none'; // Ensure it's hidden on error
+            });
         }
         
         // Auto-focus first input when generator section is visible
