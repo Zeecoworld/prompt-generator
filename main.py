@@ -103,6 +103,10 @@ def set_security_headers(response):
     
     return response
 
+@app.route('/ads.txt')
+def ads_txt():
+    ads_content = "google.com, pub-7354227353904441, DIRECT, f08c47fec0942fa0"
+    return Response(ads_content, mimetype='text/plain')
 
 @app.route('/')
 def index():
